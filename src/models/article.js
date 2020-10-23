@@ -1,4 +1,5 @@
-import mongoose, { Schema } from 'mongoose'
+import mongoose from 'mongoose'
+const{ObjectId}=mongoose.Schema.Types 
 
 export const Article=mongoose.model('Article',new mongoose.Schema({
 
@@ -25,5 +26,10 @@ export const Article=mongoose.model('Article',new mongoose.Schema({
     },
     author:{
         type:String,
+    },
+    owner:{
+        type:ObjectId,
+        ref:'User'
+        
     }
 }))
