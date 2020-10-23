@@ -12,7 +12,7 @@ class userController{
         let user = await User.findOne({ email: req.body.email });
         console.log(user)
         if (user) {
-            return res.status(400).send('That user already exists');
+            return res.status(409).send('That user already exists');
         } else {
             
             user = new User(_.pick(req.body,['name','email','password']))
@@ -30,7 +30,7 @@ class userController{
         let user = await User.findOne({ email: req.body.email });
         console.log(user)
         if (user) {
-            return res.status(400).send('That user already exists');
+            return res.status(409).send('That user already exists');
         } else {
             
             user = new User(_.pick(req.body,['name','email','password']))

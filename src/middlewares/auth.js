@@ -6,7 +6,7 @@ class auth{
      auth(req,res,next){
 
         const token=req.header('x-auth-token');
-        if(!token) res.status(500).send('access denied')
+        if(!token) res.status(403).send('access denied')
 
 
         try{

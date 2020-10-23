@@ -1,7 +1,7 @@
 class admin{
 
     async isAdmin(req,res,next){
-        if(!req.user.isAdmin) res.status(500).send('Access denied')
+        if(!req.user.isAdmin) res.status(403).send('Access denied')
         next()
     }
 
