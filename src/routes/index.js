@@ -13,7 +13,7 @@ var router = express.Router()
 
 router.post('/register',validateRegister,userRegisterController.postUser)
 router.post('/register/admin',auth,validateRegister,userRegisterController.postAdmin)
-router.get('/users',auth,isAdmin,userViewController.viewAll)
+router.get('/users',userViewController.viewAll)
 router.get('/user/:id',auth,userViewController.viewById)
 router.post('/auth',validateLogin,userAuthController.loginUser)
 router.post('/post/query',validateQuery,queryCreateController.post)

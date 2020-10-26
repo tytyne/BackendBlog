@@ -4,6 +4,10 @@ import routes from './src/routes/index.js'
 import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
 import config from 'config'
+import swaggerUi from 'swagger-ui-express'
+import swaggerDocument from './src/swagger.json'
+
+// swaggerDocument = require('./src/swagger.json');
 const   PORT=process.env.PORT||4000;
 
 app.get('/',(req,res)=>{
@@ -39,9 +43,11 @@ app.use(express.json())
 app.use(bodyParser.json())
 // console.log(routes)
 app.use('/api',routes)
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 const server = app.listen(PORT,()=>{
     console.log(`listen to port ${PORT}`)
 })
+
 
 export default server;
 
