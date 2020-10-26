@@ -3,6 +3,12 @@ import{Query} from '../../models/query.js'
 class queryViewController{
 
 static async viewAll(req,res){
+
+    const wapa=req.user
+    console.log(wapa)
+    const wapi=req.user.isAdmin
+    console.log(wapi)
+  
     const queries= await Query.find()
 
     try{

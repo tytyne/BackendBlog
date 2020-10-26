@@ -3,10 +3,10 @@ import{User} from '../../models/user.js'
 class userViewController{
 
 static async viewAll(req,res){
-    const users= await Query.find()
+    const users= await User.find()
 
     try{
-        if(queries) 
+        if(users) 
         res.status(200).json(users)
     }
     catch(err){
