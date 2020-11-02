@@ -1,0 +1,222 @@
+{
+    "swagger": "2.0",
+    "info": {
+    "version": "4.1.4",
+    "title": "Personal Blog",
+    "description": "Personal Blog API",
+    "license": {
+    "name": "MIT",
+    "url": "https://opensource.org/licenses/MIT"
+    }
+    },
+    "host": "localhost:4000",
+    "basePath": "/",
+    "tags": [
+    {
+    "name": "Users",
+    "description": "API for user,articles,queries in the sytem"
+    }
+    ],
+    "schemes": [
+    "http"
+    ],
+    "consumes": [
+    "application/json"
+    ],
+    "produces": [
+    "application/json"
+    ],
+
+    "paths": {
+        "/api/register": {
+            "post": {
+            "tags": [
+                "user routers"
+            ],
+            "summary": "Create a new user ",
+            "parameters": [
+                {
+                "name": "name",
+                "in": "formData",
+                "required": true,
+                "description": "name of the user",
+                "type": "string"
+                },
+                {
+                    "name": "email",
+                    "in": "formData",
+                    "required": true,
+                    "description": " email for user",
+                    "type": "string"
+                },
+                {
+                    "name": "password",
+                    "in": "formData",
+                    "required": true,
+                    "description": " password for user",
+                    "type": "string"
+                    }
+                ],
+
+            "responses": {
+            "200": {
+            "description": "a user created",
+            "schema": {
+            "$ref": "#/definitions/User"
+            }
+            }
+            }
+            }
+            },
+        "/api/users": {
+            "get": {
+            "tags": [
+            "user routers"
+            ],
+            "summary": "Get a list of all users ",
+            "responses": {
+            "200": {
+            "description": "users found",
+            "schema": {
+            "$ref": "#/definitions/User"
+            }
+            }
+            }
+            }
+            },
+
+
+          "/api/user/{id}": {
+            "get": {
+            "tags": [
+                "user routers"
+            ],
+            "summary": "User with that ID",
+            "parameters": [
+                {
+                "name": "id",
+                "in": "query",
+                "required": true,
+                "description": "ID for the user",
+                "type": "string"
+                }
+                ],
+
+            "responses": {
+            "200": {
+            "description": "the user ..",
+            "schema": {
+            "$ref": "#/definitions/User"
+            }
+            }
+            }
+            }
+            }, 
+
+            "/api/queries": {
+                "get": {
+                "tags": [
+                "query routers"
+                ],
+                "summary": "Get a list of all queries ",
+                "responses": {
+                "200": {
+                "description": "queries found",
+                "schema": {
+                "$ref": "#/definitions/Query"
+                }
+                }
+                }
+                }
+                } 
+     
+
+    },   
+        
+
+    "definitions": {
+       
+        "User": {
+        "properties": {
+    
+        "name": {
+        "type": "string",
+        "required":true
+        },
+        "email": {
+        "type": "string",
+        "required":true
+        },
+        "password": {
+        "type": "string",
+        "required":true
+        }
+        
+    }
+
+    
+    },
+
+    "Query":{
+        "properties":{
+
+            "name": {
+            "type": "string",
+            "required":true
+            },
+            "email": {
+            "type": "string",
+            "required":true
+            },
+            "subject": {
+            "type": "string",
+            "required":true
+            },
+
+            "message":{
+            "type":"string",
+            "required":true
+            }
+            
+            }
+
+    } ,
+
+    "Article":{
+        "properties":{
+
+            "header": {
+            "type": "string",
+            "required":true
+            },
+            "content": {
+            "type": "string",
+            "required":true
+            },
+            "img": {
+            "type": "string"
+          
+            },
+
+            "category":{
+            "type":"string",
+            "required":true
+            },
+            "tag":{
+            "type":"string",
+            "required":true
+            },
+            "owner":{
+                "type":"string"
+            }
+            }
+
+    } 
+   
+
+}  
+
+
+
+
+}

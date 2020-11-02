@@ -1,12 +1,12 @@
 import jwt from 'jsonwebtoken'
 import config from 'config'
 
-class auth{
 
-     auth(req,res,next){
+
+    const auth = (req,res,next)=>{
 
         const token=req.header('x-auth-token');
-        if(!token) res.status(500).send('access denied')
+        if(!token) res.status(403).send('access denied')
 
 
         try{
@@ -20,7 +20,7 @@ class auth{
         }
 
     }
-}
+
 
 
 export default auth
