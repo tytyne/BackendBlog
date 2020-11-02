@@ -18,10 +18,10 @@ export const validateQuery =(req,res,next)=>{
 
 }
 
-export const  validateArticle=(reqs,res,next)=>{
-    const{header,content,img,category,tag}=req.body;
+export const  validateArticle=(req,res,next)=>{
+    const{header,content,category,tag}=req.body;
     const vld = articleValidator.validate({
-        header,content,img,category,tag
+        header,content,category,tag
     })
 
     if(vld.error){

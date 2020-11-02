@@ -113,7 +113,7 @@
             }
             }, 
 
-            "/api/queirs": {
+            "/api/queries": {
                 "get": {
                 "tags": [
                 "query routers"

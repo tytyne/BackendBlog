@@ -14,7 +14,8 @@ export const Article=mongoose.model('Article',new mongoose.Schema({
     },
     img:{
         data:Buffer,
-        contentType:String
+        contentType:String,
+        require:false
     },
     category:{
         type:String,
@@ -28,8 +29,7 @@ export const Article=mongoose.model('Article',new mongoose.Schema({
         type:String,
     },
     owner:{
-        type:ObjectId,
-        ref:'User'
-        
-    }
+        type:String
+    },
+  
 }))

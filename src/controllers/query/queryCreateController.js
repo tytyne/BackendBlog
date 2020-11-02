@@ -11,7 +11,7 @@ static async post(req,res){
         message:req.body.message
     })
     await query.save()
-
+    console.log(query)
     res.status(201).json({query})
 
 }

@@ -1,7 +1,11 @@
 
 
     const isAdmin = (req,res,next)=> {
-        if(!req.user.isAdmin) res.status(403).send('Access denied')
+     
+        console.log(req.user.user.isAdmin)
+        if(!req.user.user.isAdmin) 
+        return res.status(403).send('Access denied')
+        
         next()
     }
 
