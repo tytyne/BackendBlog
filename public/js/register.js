@@ -3,7 +3,9 @@ $(function(){
     var $name=$('#name');
     var $email=$('#email')
     var $password=$('#password')
-    $('#signUp').on('click',function(){
+    $('#signUp').on('click',(e)=>{
+        e.preventDefault()
+       
     
     var user={
         name:$name.val(),
@@ -21,15 +23,17 @@ $(function(){
      
         success:function(data){
             alert('registered succesful!')
+            window.location.href = "/login";
          
         },
        
         error: function(jqXHR) {  
             if(jqXHR.status&&jqXHR.status==400){
-                 alert.error(jqXHR.responseText);
+                 alert(jqXHR.responseText);
                 
             }else{
-                alert("Something went wrong");
+                alert("The user arlead exist!");
+                location.reload();
             }
            
        }
