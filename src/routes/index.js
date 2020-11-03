@@ -12,17 +12,18 @@ import articleViewController from '../controllers/article/articleViewController.
 import articleDeleteController from '../controllers/article/articleDeleteController.js'
 import auth from '../middlewares/auth.js'
 import isAdmin from '../middlewares/admin.js'
-import {validateQuery,validateArticle,validateRegister,validateLogin} from '../middlewares/validatorMiddleware.js'
+import { validateQuery,validateArticle,validateRegister,validateLogin} from '../middlewares/validatorMiddleware.js'
 
 
 var router = express.Router()
 
-router.post('/register',userRegisterController.postUser)
-router.post('/register/admin',auth,validateRegister,userRegisterController.postAdmin)
+router.post('/register',validateRegister,userRegisterController.postUser)
+router.post('/register/admin',[auth,isAdmin],validateRegister,userRegisterController.postAdmin)
+router.post('/auth',validateLogin,userAuthController.loginUser)
 router.get('/users',userViewController.viewAll)
 
 router.get('/user/:id',auth,userViewController.viewById)
-router.post('/auth',userAuthController.loginUser)
+
 router.post('/post/query',validateQuery,queryCreateController.post) //done
 router.get('/queries',queryViewController.viewAll)
 router.get('/articles',articleViewController.viewAll) //done

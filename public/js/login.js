@@ -2,7 +2,8 @@ $(function(){
 
     var $email=$('#email')
     var $password=$('#password')
-    $('#signIn').on('click',function(){
+    $('#signIn').on('click',(e)=>{
+        e.preventDefault()
     
     var user={
         email:$email.val(),
@@ -15,16 +16,17 @@ $(function(){
         dataType: 'json',
         data:JSON.stringify(user),
         contentType: 'application/json;charset=UTF-8',
-        url:'/api/register',
+        url:'/api/auth',
      
         success:function(data){
             alert('login succesful!')
+            window.location.href = "/";
          
         },
        
         error: function(jqXHR) {  
             if(jqXHR.status&&jqXHR.status==400){
-                 alert.error(jqXHR.responseText);
+                 alert(jqXHR.responseText);
                 
             }else{
                 alert("Something went wrong");
