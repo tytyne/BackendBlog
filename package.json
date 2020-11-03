@@ -4,9 +4,13 @@
   "description": "personal Blog Backend",
   "type": "module",
   "main": "index.js",
+  
   "scripts": {
     "start": "nodemon --exec babel-node index.js",
     "test": "mocha"
+  },
+  "engines": {
+    "node": "12.18.3"
   },
   "author": "Dusabeyezu Florentine",
   "license": "ISC",
