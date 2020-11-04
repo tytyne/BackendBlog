@@ -6,7 +6,6 @@ import bodyParser from 'body-parser'
 import ejs from 'ejs'
 import {dirname}from 'path'
 import path from 'path'
-import 'dotenv/config';
 import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 import serveStatic from 'serve-static'

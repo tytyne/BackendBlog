@@ -19,7 +19,7 @@ class userController{
             const salt=await bcrypt.genSalt(10)
             user.password=await bcrypt.hash(user.password,salt)
             await user.save();
-            res.send(user);
+            res.status(201).json({user});
         }
 
 
@@ -38,7 +38,7 @@ class userController{
             const salt=await bcrypt.genSalt(10)
             user.password=await bcrypt.hash(user.password,salt)
             await user.save();
-            res.send(user);
+            res.status(201).json({user});
         }
 
 
