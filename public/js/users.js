@@ -20,7 +20,7 @@ $(function(){
     $.ajax({
 
         type:'Get',
-        url:'/api/users',
+        url:'https://safe-hamlet-58854.herokuapp.com/api/users',
         success:function(qys){
             $.each(qys,function(i,qy){
               addQuery(qy)
@@ -33,7 +33,7 @@ $(function(){
         var $tr=$(this).closest('tr')
         $.ajax({
             type:'DELETE',
-            url:'/api/user/' +$(this).attr('data-id'),
+            url:'https://safe-hamlet-58854.herokuapp.com/api/user/' +$(this).attr('data-id'),
             success:function(){
                 $tr.fadeOut(300,function() {
                 $(this).remove();

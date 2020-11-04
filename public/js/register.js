@@ -19,11 +19,11 @@ $(function(){
         dataType: 'json',
         data:JSON.stringify(user),
         contentType: 'application/json;charset=UTF-8',
-        url:'/https://safe-hamlet-58854.herokuapp.com/api/register',
+        url:'https://safe-hamlet-58854.herokuapp.com/api/register',
      
         success:function(data){
             alert('registered succesful!')
-            window.location.href = "/login";
+            window.location.href = "https://safe-hamlet-58854.herokuapp.com/login";
          
         },
        
