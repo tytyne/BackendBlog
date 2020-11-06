@@ -57,7 +57,18 @@ app.use("/css", express.static("public/css"));
 app.use("/js", express.static("public/js"));
 app.use("/assets", express.static("public/assets"));
 
+app.use((req,res,next)=>{
 
+  res.header('Access-Control-Allow-Origin','*');
+  res.header('Access-Control-Allow-Headers',
+  'Origin,X-Requested-With,Content-Type,Accept,Authorization'
+  );
+if(req.method==='OPTIONS'){
+  res.header('Access-Control-Allow-Methods','PUT,POST,PATCH,DELETE,GET');
+  return res.status(200).json({})
+}
+next();
+})
 //showing landing page
 app.get("/home",(req,res)=>{
   return res.render('index.html')})
@@ -67,14 +78,21 @@ app.get("/article",(req,res)=>{
   // all articles
   app.get("/articles",(req,res)=>{
     return res.render('all.html')}) 
-    app.get("/users",(req,res)=>{
-      return res.render('userdashboard.html')}) 
+  app.get("/users",(req,res)=>{
+    return res.render('userdashboard.html')}) 
+  app.get("/viewarticles",(req,res)=>{
+    return res.render("articles.html")
+  })  
 //showing registration page
 app.get("/register",(req,res)=>{
   return res.render('registration.html')})
 //showing login page
 app.get("/login",(req,res)=>{
   return res.render('login.html')
+})
+
+app.get("/dashboard",(req,res)=>{
+return res.render('dashboard.html')
 })
 
 app.get("/queries",(req,res)=>{

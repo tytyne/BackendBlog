@@ -214,34 +214,32 @@ text-align:center
 /* end view articles */
 
 /* all articles */
+.main-articles{
 
-#containi {
-  /* background-color:rebeccapurple; */
   flex-direction:row;
   align-content:center;
   flex-wrap:wrap;
 }
-#containi{
-  display:flex;
 
+.main-articles img{
+
+  height:250px;
+  width:250px;
+  padding-top:20px;
+  padding-left:20px;
 }
-#containi div{
-  padding-top:50px;
+
+.main-articles{
+  display:flex;
+  padding-top:40px;
+}
+.main-articles div{
+
   flex: 1 0 21%;
   background-color: white;
   margin:20px;
-  
-
 }
 
-#containi #readMore{
-  background-color:orange;
-  border:none;
-  height:30px;
-  width:80px;
-  color:white;
-  font-weight:200px;
-}
 /* end all articles */
 
 
@@ -282,6 +280,9 @@ text-align:center
   font-weight: 200;
    
 }
+
+
+
 tr .edit{
   display:none
 }

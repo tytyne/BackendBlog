@@ -27,7 +27,7 @@ $(function(){
             dataType: 'json',
             data:JSON.stringify(queries),
             contentType: 'application/json;charset=UTF-8',
-            url:'https://safe-hamlet-58854.herokuapp.com/api/post/query',
+            url:'/api/post/query',
 
             success:function(data){
                 alert('message sent!')
@@ -65,7 +65,7 @@ $(function(){
     $.ajax({
 
         type:'Get',
-        url:'https://safe-hamlet-58854.herokuapp.com/api/queries',
+        url:'/api/queries',
         success:function(qys){
             $.each(qys,function(i,qy){
               addQuery(qy)
@@ -78,7 +78,7 @@ $(function(){
         var $tr=$(this).closest('tr')
         $.ajax({
             type:'DELETE',
-            url:'https://safe-hamlet-58854.herokuapp.com/api/query/' +$(this).attr('data-id'),
+            url:'/api/query/' +$(this).attr('data-id'),
             success:function(){
                 $tr.fadeOut(300,function() {
                 $(this).remove();

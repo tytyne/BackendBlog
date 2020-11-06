@@ -16,7 +16,7 @@ $(function(){
         dataType: 'json',
         data:JSON.stringify(user),
         contentType: 'application/json;charset=UTF-8',
-        url:'https://safe-hamlet-58854.herokuapp.com/api/auth',
+        url:'/api/auth',
      
         success:function(data){
             alert('login succesful!')
