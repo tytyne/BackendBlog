@@ -5,7 +5,7 @@ const isAllowed = (req,res,next)=> {
     next()
     }
     else{
-        res.redirect('/notallowed')
+        res.redirect('/index')
     }
 }
 

@@ -68,12 +68,58 @@
             }
             }
             },
+
+            "/api/auth": {
+                "post": {
+                "tags": [
+                    "user routers"
+                ],
+                "summary": "Login ",
+                "parameters": [
+                  
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "required": true,
+                        "description": " email for user",
+                        "type": "string"
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "required": true,
+                        "description": " password for user",
+                        "type": "string"
+                        }
+                    ],
+    
+                "responses": {
+                "200": {
+                "description": "a user login",
+                "schema": {
+                "$ref": "#/definitions/User"
+                }
+                }
+                }
+                }
+                },
+
+
         "/api/users": {
             "get": {
             "tags": [
             "user routers"
             ],
             "summary": "Get a list of all users ",
+            "parameter":[{
+
+                "in": "query",
+                "name": "token",
+                "type": "string",
+                "required": true,
+                "description": "Bearer Token"
+
+            }],
             "responses": {
             "200": {
             "description": "users found",
@@ -93,18 +139,29 @@
             ],
             "summary": "User with that ID",
             "parameters": [
+
+                {
+
+                    "in": "query",
+                    "name": "token",
+                    "type": "string",
+                    "required": true,
+                    "description": "Bearer Token"
+    
+                },
+
                 {
                 "name": "id",
-                "in": "query",
+                "in": "path",
                 "required": true,
-                "description": "ID for the user",
+                "description": "ID for the Driver",
                 "type": "string"
                 }
                 ],
 
             "responses": {
             "200": {
-            "description": "the user ..",
+            "description": "the user with that ID",
             "schema": {
             "$ref": "#/definitions/User"
             }
@@ -119,6 +176,18 @@
                 "query routers"
                 ],
                 "summary": "Get a list of all queries ",
+                "parameters": [
+
+                    {
+    
+                        "in": "query",
+                        "name": "x-auth-token",
+                        "type": "string",
+                        "required": true,
+                        "description": "Bearer Token"
+        
+                    }
+                ],
                 "responses": {
                 "200": {
                 "description": "queries found",
@@ -128,8 +197,35 @@
                 }
                 }
                 }
-                } 
-     
+            },
+            "/api/articles": {
+                "get": {
+                "tags": [
+                "article routers"
+                ],
+                "summary": "Get a list of all articles ",
+                "parameters": [
+
+                    {
+    
+                        "in": "query",
+                        "name": "token",
+                        "type": "string",
+                        "required": true,
+                        "description": "Bearer Token"
+        
+                    }
+                ],
+                "responses": {
+                "200": {
+                "description": "articles found",
+                "schema": {
+                "$ref": "#/definitions/Article"
+                }
+                }
+                }
+                }
+            } 
 
     },   
         
