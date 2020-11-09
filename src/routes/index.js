@@ -26,19 +26,19 @@ router.post('/register/admin',[auth,isAdmin],validateRegister,userRegisterContro
 router.post('/auth',validateLogin,userAuthController.loginUser)
 router.get('/me',auth,meController.checkMe)
 router.get('/logout',auth,userLogoutController)
-router.get('/users',auth,userViewController.viewAll)
+router.get('/users',userViewController.viewAll)
 
 router.get('/user/:id',auth,userViewController.viewById)
 
-router.post('/post/query',auth,validateQuery,queryCreateController.post) //done
-router.get('/queries',auth,queryViewController.viewAll)
+router.post('/post/query',validateQuery,queryCreateController.post) //done
+router.get('/queries',queryViewController.viewAll)
 router.get('/articles',articleViewController.viewAll) //done
-router.get('/query/:id',auth,queryViewController.viewById)
-router.delete('/query/:id',auth,queryDeleteController.deleteById)
-router.delete('/user/:id',auth,userDeleteController.deleteById)
-router.delete('/article/:id',auth,articleDeleteController.deleteById)
-router.patch('/article/:id',auth,articleUpdateController.edit)
-router.post('/post/article',auth,validateArticle,articleCreateController.post)
+router.get('/query/:id',queryViewController.viewById)
+router.delete('/query/:id',queryDeleteController.deleteById)
+router.delete('/user/:id',userDeleteController.deleteById)
+router.delete('/article/:id',articleDeleteController.deleteById)
+router.patch('/article/:id',articleUpdateController.edit)
+router.post('/post/article',validateArticle,articleCreateController.post)
 
 
 export default router
