@@ -32,7 +32,7 @@ router.get('/user/:id',auth,userViewController.viewById)
 
 router.post('/post/query',auth,validateQuery,queryCreateController.post) //done
 router.get('/queries',auth,queryViewController.viewAll)
-router.get('/articles',auth,articleViewController.viewAll) //done
+router.get('/articles',articleViewController.viewAll) //done
 router.get('/query/:id',auth,queryViewController.viewById)
 router.delete('/query/:id',auth,queryDeleteController.deleteById)
 router.delete('/user/:id',auth,userDeleteController.deleteById)
